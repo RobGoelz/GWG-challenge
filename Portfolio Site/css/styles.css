@@ -72,21 +72,6 @@ a:visited {
   color: #7d97ad;
 }
 
-.button{
-  border: solid 2px #2d3c49;
-  color: #2d3c49;
-  display: inline-block;
-  height: 48px;
-  line-height: 48px;
-  width: 48px;
-}
-
-.button:hover{
-  background: #fff;
-  border: solid 2px #2d3c49;
-  color: #2d3c49;
-}
-
 footer {
   background: #DCDCDC;
   height: auto;
