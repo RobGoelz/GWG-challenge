@@ -73,9 +73,8 @@ a:visited {
 }
 
 .button{
-  border: solid 2px #fff;
-  border-radius: 50%;
-  color: #fff;
+  border: solid 2px #2d3c49;
+  color: #2d3c49;
   display: inline-block;
   height: 48px;
   line-height: 48px;
@@ -84,8 +83,8 @@ a:visited {
 
 .button:hover{
   background: #fff;
-  border: solid 2px #fff;
-  color: #042a2b;
+  border: solid 2px #2d3c49;
+  color: #2d3c49;
 }
 
 footer {
