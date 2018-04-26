@@ -83,10 +83,10 @@ a:visited {
 }
 
 .button:hover{
-    background: #fff;
-    border: solid 2px #fff;
-    color: #042a2b;
-  }
+  background: #fff;
+  border: solid 2px #fff;
+  color: #042a2b;
+}
 
 footer {
   background: #DCDCDC;
