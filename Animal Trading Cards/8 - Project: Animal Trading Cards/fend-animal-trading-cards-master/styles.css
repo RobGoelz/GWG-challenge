@@ -1,0 +1,44 @@
+.card {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 320px;
+  padding: 5px 5px 10px 5px;
+  margin: auto;
+  box-shadow: 5px 5px 20px #ccc;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 28px;
+  padding: 10px;
+  margin: auto;
+}
+
+img {
+  width: 300px;
+  display: block;
+  margin: auto;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+#interesting {
+  font-style: italic;
+}
+
+#info {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 280px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list {
+  font-weight: bold;
+}
