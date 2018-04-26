@@ -11,35 +11,41 @@
   width: 100%;
 }
 
-
 @media screen and (min-width: 300px) {
   .logo {
     height: 80px;
   }
+
   header {
     height: 90px;
   }
+
   .name {
     font-size: 31px;
     padding-top: 10px;
   }
+
   .byline {
     font-size: 16px;
   }
+
   .hero {
     height: 161px;
     padding-top: 5px;
     width: 100%;
   }
+
   .first, .second, .third {
     margin: auto;
     text-align: center;
   }
+
   .first-img, .second-img, .third-img {
     height: 161px;
     padding-top: 5px;
     width: auto;
   }
+
   .feat-p {
     padding-bottom: 10px;
     text-align:inherit;
@@ -50,33 +56,42 @@
   header {
     height: 109px;
   }
+
   .logo {
     height: auto;
   }
+
   .name {
     font-size: 40px;
   }
+
   .byline {
     display: inherit;
     font-size: 20px;
   }
+
   .hero {
     height: 440px;
     width: 100%;
   }
+
   .light-text {
     font-size: 25px;
   }
+
   .feat-p {
     font-size: 22px;
     text-align: center;
   }
+
   .first {
       width: 33%;
     }
+
   .second {
       width: 33%;
   }
+
   .third {
       width: 33%;
   }
@@ -86,11 +101,13 @@
   .byline {
     font-size: 20px;
   }
+
   .container {
     margin-left: auto;
     margin-right: auto;
     width: 800px;
   }
+
   .name {
     font-size: 40px;
   }
