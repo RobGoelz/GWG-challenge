@@ -1,0 +1,96 @@
+/* common elements */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h4 {
+  margin: 0;
+}
+
+header {
+  height: 109px;
+  width: 100%;
+  background: linear-gradient(to right, #2d3c49, #02b3e4);
+}
+
+hr {
+  width: 100%;
+  height: 5px;
+  background-color: #7d97ad;
+  margin: 0;
+}
+
+.logo {
+  float: left;
+  padding-left: 10px;
+}
+
+.name {
+  color: #2d3c49;
+  text-align: right;
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+.byline {
+  color: #2d3c49;
+  text-align: right;
+  font-size: 14px;
+  font-style: italic;
+  padding-right: 10px;
+}
+
+.light-text {
+  color: #7d97ad;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.feat-p, a {
+  color: #2d3c49;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #02b3e4;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #7d97ad;
+}
+
+.button{
+  color: #fff;
+  border: solid 2px #fff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.button:hover{
+    border: solid 2px #fff;
+    color: #042a2b;
+    background: #fff;
+  }
+
+footer {
+    text-align: center;
+    height: auto;
+    width: 100%;
+    background: #DCDCDC;
+}

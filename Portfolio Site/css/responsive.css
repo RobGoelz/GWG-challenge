@@ -1,0 +1,98 @@
+/* responsive elements */
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+@media screen and (min-width: 300px) {
+  .logo {
+    height: 80px;
+  }
+  header {
+    height: 90px;
+  }
+  .name {
+    font-size: 31px;
+    padding-top: 10px;
+  }
+  .byline {
+    font-size: 16px;
+  }
+  .hero {
+    padding-top: 5px;
+    height: 161px;
+    width: 100%;
+  }
+  .first, .second, .third {
+    margin: auto;
+    text-align: center;
+  }
+  .first-img, .second-img, .third-img {
+    padding-top: 5px;
+    height: 161px;
+    width: auto;
+  }
+  .feat-p {
+    text-align:inherit;
+    padding-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  header {
+    height: 109px;
+  }
+  .logo {
+    height: auto;
+  }
+  .name {
+    font-size: 40px;
+  }
+  .byline {
+    display: inherit;
+    font-size: 20px;
+  }
+  .hero {
+    height: 440px;
+    width: 100%;
+  }
+  .light-text {
+    font-size: 25px;
+  }
+  .feat-p {
+    font-size: 22px;
+    text-align: center;
+  }
+  .first {
+      width: 33%;
+    }
+  .second {
+      width: 33%;
+  }
+  .third {
+      width: 33%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .name {
+    font-size: 40px;
+  }
+  .byline {
+    font-size: 20px;
+  }
+}
