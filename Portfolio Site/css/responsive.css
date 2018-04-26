@@ -1,15 +1,14 @@
 /* responsive elements */
-
 .container {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .container2 {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 
@@ -28,8 +27,8 @@
     font-size: 16px;
   }
   .hero {
-    padding-top: 5px;
     height: 161px;
+    padding-top: 5px;
     width: 100%;
   }
   .first, .second, .third {
@@ -37,13 +36,13 @@
     text-align: center;
   }
   .first-img, .second-img, .third-img {
-    padding-top: 5px;
     height: 161px;
+    padding-top: 5px;
     width: auto;
   }
   .feat-p {
-    text-align:inherit;
     padding-bottom: 10px;
+    text-align:inherit;
   }
 }
 
@@ -84,15 +83,15 @@
 }
 
 @media screen and (min-width: 800px) {
+  .byline {
+    font-size: 20px;
+  }
   .container {
-    width: 800px;
     margin-left: auto;
     margin-right: auto;
+    width: 800px;
   }
   .name {
     font-size: 40px;
-  }
-  .byline {
-    font-size: 20px;
   }
 }
