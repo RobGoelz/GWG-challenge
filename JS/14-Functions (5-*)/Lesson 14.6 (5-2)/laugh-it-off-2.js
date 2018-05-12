@@ -8,13 +8,13 @@
  *  - make sure that your function produces the correct results when it is called multiple times
  */
 
-function laugh(num) {
-    var ha = "ha";
-    var storedLaugh = "";
-    while (num > 0) {
-        storedLaugh += ha;
-        num --;
-    }
-    return storedLaugh + "!";
+function laugh (num) {
+  var ha = 'ha';
+  var storedLaugh = '';
+  while (num > 0) {
+    storedLaugh += ha;
+    num--;
+  }
+  return storedLaugh + '!';
 }
 console.log(laugh(5));
