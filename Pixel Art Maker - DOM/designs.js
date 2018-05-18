@@ -4,7 +4,9 @@ let sizePicker = document.querySelector('#sizePicker');
 // When size is submitted by the user, call makeGrid()
 sizePicker.addEventListener('submit', function makeGrid (event) {
   // Your code goes here!
-  document.querySelector('table tr').remove();
+  // if ('tr') {
+  //   document.querySelector('table').removeElement();
+  // }
 
   // Select size input
   const rows = document.querySelector('#inputHeight').value;
