@@ -1,8 +1,9 @@
 // Set consts for commonly used IDs
 const sizePicker = document.querySelector('#sizePicker');
 const pixelCanvas = document.querySelector('#pixelCanvas');
+const colorPicker = document.querySelector('#colorPicker');
 // Select color
-const paint = document.querySelector('#colorPicker').value;
+let paint = colorPicker.value;
 
 // When size is submitted by the user, call makeGrid()
 sizePicker.addEventListener('submit', function makeGrid (event) {
@@ -24,7 +25,10 @@ sizePicker.addEventListener('submit', function makeGrid (event) {
   event.preventDefault();
 });
 
+function paintGrid () {
+  let pixel = document.querySelector('td');
+  pixel.style.bgcolor = paint;
+}
+
 // Select color input
-pixelCanvas.addEventListener('click', function () {
-  document.querySelector('td').style.color = paint;
-});
+pixelCanvas.addEventListener('click', paintGrid, true);
