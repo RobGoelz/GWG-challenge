@@ -1,32 +1,32 @@
-let table = document.querySelector('table');
-let sizePicker = document.querySelector('#sizePicker');
-let pixelCanvas = document.querySelector('#pixelCanvas');
+const sizePicker = document.querySelector('#sizePicker');
+const pixelCanvas = document.querySelector('#pixelCanvas');
+const colorPicker = document.querySelector('#colorPicker');
 // When size is submitted by the user, call makeGrid()
 sizePicker.addEventListener('submit', function makeGrid (event) {
   // Your code goes here!
-  if (document.querySelector('tr')) {
-    document.querySelector('tr').remove();
-  }
+  // if (document.querySelector('tr')) {
+  //   document.querySelector('tr').remove();
+  // }
 
   // Select size input
-  const rows = document.querySelector('#inputHeight').value;
-  const cols = document.querySelector('#inputWidth').value;
-
+  const tRows = document.querySelector('#inputHeight').value;
+  const tCols = document.querySelector('#inputWidth').value;
   // Set const for creating grid elements
-  const tRow = document.createElement('tr');
-  const tData = document.createElement('td');
+  // const tRow = document.createElement('tr');
+  // const tData = document.createElement('td');
 
   // Iterate over selected grid size
-  for (let i = 1; i <= rows; i++) {
-    table.appendChild(tRow);
-    for (let j = 1; j <= cols; j++) {
-      table.querySelector('tr').appendChild(tData);
+  for (let i = 0; i < tRows; i++) {
+    pixelCanvas.insertRow(i);
+    for (let j = 0; j < tCols; j++) {
+      let row = document.querySelector('tr:last-of-type');
+      row.insertCell(j);
     }
   }
   event.preventDefault();
 });
 // Select color input
 pixelCanvas.addEventListener('click', function () {
-  let paint = document.querySelector('#colorPicker').value;
+  let paint = colorPicker.value;
   document.querySelector('td').style.color = paint;
 });
