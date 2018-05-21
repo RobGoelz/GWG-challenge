@@ -5,9 +5,8 @@ const colorPicker = document.querySelector('#colorPicker');
 
 // Declare makeGrid function as variable
 const makeGrid = function (event) {
-  if (document.querySelector('table tr')) {
-    document.getElementsByTagName('tr').remove();
-  }
+  // Clear Grid
+  pixelCanvas.innerHTML = '';
   // Select size input
   const tRows = document.querySelector('#inputHeight').value;
   const tCols = document.querySelector('#inputWidth').value;
