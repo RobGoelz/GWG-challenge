@@ -5,12 +5,11 @@ const colorPicker = document.querySelector('#colorPicker');
 // Select color
 let paint = colorPicker.value;
 
-// When size is submitted by the user, call makeGrid()
-sizePicker.addEventListener('submit', function makeGrid (event) {
+// Declare makeGrid function as variable
+const makeGrid = function (event) {
   if (document.querySelector('table tr')) {
     document.getElementsByTagName('tr').remove();
   }
-
   // Select size input
   const tRows = document.querySelector('#inputHeight').value;
   const tCols = document.querySelector('#inputWidth').value;
@@ -23,12 +22,13 @@ sizePicker.addEventListener('submit', function makeGrid (event) {
     }
   }
   event.preventDefault();
-});
+};
 
-function paintGrid () {
-  let pixel = document.querySelector('td');
-  pixel.style.bgcolor = paint;
-}
-
+// When size is submitted by the user, call makeGrid()
+sizePicker.addEventListener('submit', makeGrid);
 // Select color input
-pixelCanvas.addEventListener('click', paintGrid, true);
+pixelCanvas.addEventListener('click', function (event) {
+  if (event.target && event.target.nodeName === 'td') {
+    document.querySelector('td').style.color = paint;
+  }
+});
