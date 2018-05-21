@@ -2,8 +2,6 @@
 const sizePicker = document.querySelector('#sizePicker');
 const pixelCanvas = document.querySelector('#pixelCanvas');
 const colorPicker = document.querySelector('#colorPicker');
-// Select color
-let paint = colorPicker.value;
 
 // Declare makeGrid function as variable
 const makeGrid = function (event) {
@@ -28,7 +26,6 @@ const makeGrid = function (event) {
 sizePicker.addEventListener('submit', makeGrid);
 // Select color input
 pixelCanvas.addEventListener('click', function (event) {
-  if (event.target && event.target.nodeName === 'td') {
-    document.querySelector('td').style.color = paint;
-  }
+  const paint = colorPicker.value;
+  event.target.setAttribute('style', `background-color: ${paint}`);
 });
