@@ -26,10 +26,12 @@ Enemy.prototype.render = function () {
 // a handleInput() method.
 var Player = function () {
   this.sprite = 'images/char-horn-girl.png';
+  this.xPos = 200;
+  this.yPos = 400;
   this.update = function (dt) {
   };
   this.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.xPos, this.yPos);
   };
   this.handleInput = function (dt) {
   };
