@@ -42,16 +42,24 @@ var Player = function () {
   this.handleInput = function (input) {
     switch (input) {
       case 'up':
-        this.yPos -= 83;
+        if (this.yPos > -15) {
+          this.yPos -= 83;
+        }
         break;
       case 'left':
-        this.xPos -= 101;
+        if (this.xPos > 0) {
+          this.xPos -= 101;
+        }
         break;
       case 'right':
-        this.xPos += 101;
+        if (this.xPos < 400) {
+          this.xPos += 101;
+        }
         break;
       case 'down':
-        this.yPos += 83;
+        if (this.yPos < 400) {
+          this.yPos += 83;
+        }
         break;
     }
   };
