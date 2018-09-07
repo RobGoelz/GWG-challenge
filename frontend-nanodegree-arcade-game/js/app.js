@@ -33,30 +33,28 @@ var Player = function () {
   this.sprite = 'images/char-horn-girl.png';
   this.xPos = 200;
   this.yPos = 400;
-};
 
-Player.prototype.update = function (dt) {
-};
-
-Player.prototype.render = function () {
-  ctx.drawImage(Resources.get(this.sprite), this.xPos, this.yPos);
-};
-
-Player.prototype.handleInput = function (input) {
-  switch (input) {
-    case 'up':
-      this.yPos -= 83;
-      break;
-    case 'left':
-      this.xPos -= 101;
-      break;
-    case 'right':
-      this.xPos += 101;
-      break;
-    case 'down':
-      this.yPos += 83;
-      break;
-  }
+  this.update = function (dt) {
+  };
+  this.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.xPos, this.yPos);
+  };
+  this.handleInput = function (input) {
+    switch (input) {
+      case 'up':
+        this.yPos -= 83;
+        break;
+      case 'left':
+        this.xPos -= 101;
+        break;
+      case 'right':
+        this.xPos += 101;
+        break;
+      case 'down':
+        this.yPos += 83;
+        break;
+    }
+  };
 };
 
 // Now instantiate your objects.
