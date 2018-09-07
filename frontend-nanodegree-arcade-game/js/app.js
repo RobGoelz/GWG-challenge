@@ -1,12 +1,13 @@
 // Enemies our player must avoid
-var Enemy = function () {
+var Enemy = function (xPos, yPos, speed) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
   this.sprite = 'images/enemy-bug.png';
-  this.x = 1;
-  this.y = 60;
+  this.x = xPos;
+  this.y = yPos;
+  this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -15,9 +16,10 @@ Enemy.prototype.update = function (dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
-  this.x += 1;
-  if (this.x > 500) {
-    this.x = 0;
+  if (this.x < 500) {
+    this.x += this.speed * dt;
+  } else {
+    this.x = -100;
   }
 };
 
@@ -69,8 +71,17 @@ var Player = function () {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var player = new Player();
-var allEnemies = [new Enemy()];
+const player = new Player();
+
+const beetle1 = new Enemy(-150, 65, 300);
+const beetle2 = new Enemy(-150, 65, 100);
+const beetle3 = new Enemy(-200, 145, 75);
+const beetle4 = new Enemy(-400, 145, 150);
+const beetle5 = new Enemy(-100, 230, 75);
+const beetle6 = new Enemy(-250, 230, 50)
+
+const allEnemies = [];
+allEnemies.push(beetle1, beetle2, beetle3, beetle4, beetle5, beetle6);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
