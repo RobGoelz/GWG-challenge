@@ -45,16 +45,16 @@ Player.prototype.render = function () {
 Player.prototype.handleInput = function (input) {
   switch (input) {
     case 'up':
-      this.yPos -= 50;
+      this.yPos -= 83;
       break;
     case 'left':
-      this.xPos -= 50;
+      this.xPos -= 101;
       break;
     case 'right':
-      this.xPos += 50;
+      this.xPos += 101;
       break;
     case 'down':
-      this.yPos += 50;
+      this.yPos += 83;
       break;
   }
 };
