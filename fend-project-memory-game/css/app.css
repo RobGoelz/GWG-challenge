@@ -1,0 +1,208 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.score-panel h4 {
+    text-align: left;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .moves {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px 0 30px;
+}
+
+.score-panel .matches {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px 0 30px;
+}
+
+.score-panel .timer {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: 0 35px 0 70px;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    margin: 0 70px 0 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.35); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #f5f5f5;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  margin: 15% auto;
+  width: 50%;
+}
+
+.modal-header {
+  background-color: #02ccba;
+  color: white;
+  padding: 10px;
+}
+
+.modal-body {
+  background-color: #f5f5f5;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-footer {
+  background: #02ccba;
+  color: white;
+  padding: 10px;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.yes {
+  background: #aa7ecd;
+  color: white;
+  float: right;
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.yes:hover,
+.yes:focus {
+    background: #444;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
