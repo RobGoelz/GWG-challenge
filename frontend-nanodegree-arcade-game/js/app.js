@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function (xPos, yPos, speed) {
+const Enemy = function (xPos, yPos, speed) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
   // The image/sprite for our enemies, this uses
@@ -31,7 +31,7 @@ Enemy.prototype.render = function () {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function () {
+const Player = function () {
   this.sprite = 'images/char-horn-girl.png';
   this.xPos = 200;
   this.yPos = 400;
@@ -43,13 +43,22 @@ var Player = function () {
       let distance = Math.sqrt(dtx * dtx + dty * dty);
 
       if (distance < 56) {
-        console.log('hit');
+        this.reset();
       }
+    }
+    if (this.yPos === -15) {
+      alert('You Win!');
+      this.reset();
     }
   };
 
   this.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.xPos, this.yPos);
+  };
+
+  this.reset = function () {
+    this.xPos = 200;
+    this.yPos = 400;
   };
 
   this.handleInput = function (input) {
@@ -96,7 +105,7 @@ allEnemies.push(beetle1, beetle2, beetle3, beetle4, beetle5, beetle6);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
-  var allowedKeys = {
+  const allowedKeys = {
     37: 'left',
     38: 'up',
     39: 'right',
