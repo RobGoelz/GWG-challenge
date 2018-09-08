@@ -4,7 +4,7 @@
 
 * [Run The Game!](#running)
 * [Play The Game!](#playing)
-* [Contribute!](#contributions)
+* [Contribute!](#contributing)
 * [Attributions!](#attributions)
 
 
