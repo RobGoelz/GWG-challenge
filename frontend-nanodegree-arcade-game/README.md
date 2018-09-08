@@ -1,6 +1,27 @@
-frontend-nanodegree-arcade-game
+# FEND Arcade Game (Frogger Clone)
 ===============================
+## Table of Contents
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+### How to Run this Game:
+
+This game should automatically load upon clicking [this link](
+https://htmlpreview.github.io/?https://github.com/RobGoelz/GWG-challenge/blob/master/frontend-nanodegree-arcade-game/index.html)!
+
+### How to Play!
+
+At the beginning of the game, the player will start at the bottom of the screen.
+
+The objective of this game is to make it to the water on the other side of the
+screen.
+
+In order to move the character, you must us the arrow keys on your keyboard:
+- up
+- left
+- right
+- down
+
+If you collide with an enemy bug, the game will stop and prompt you to play
+again.
+
+If you win, the game will stop and you'll receive another prompt to play again!
