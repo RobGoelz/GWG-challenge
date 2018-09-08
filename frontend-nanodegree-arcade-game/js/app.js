@@ -1,9 +1,7 @@
 // Enemies our player must avoid
+// added an additional input, speed, per the advice of Matthew Cranford
+// see: https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/
 const Enemy = function (xPos, yPos, speed) {
-  // Variables applied to each of our instances go here,
-  // we've provided one for you to get started
-  // The image/sprite for our enemies, this uses
-  // a helper we've provided to easily load images
   this.sprite = 'images/enemy-bug.png';
   this.x = xPos;
   this.y = yPos;
@@ -28,14 +26,18 @@ Enemy.prototype.render = function () {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
+// player class
 // This class requires an update(), render() and
 // a handleInput() method.
+// added a reset function, per advice of Matthew Cranford
+// see: https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/
 const Player = function () {
   this.sprite = 'images/char-horn-girl.png';
   this.xPos = 200;
   this.yPos = 400;
 
+// found the advice from Peter (solittletime) to be most effective for this
+// see: https://discussions.udacity.com/t/i-dont-understand-how-to-code-classic-arcade-game/527836
   this.update = function (dt) {
     for (let enemy of allEnemies) {
       let dtx = this.xPos - enemy.x - 15;
@@ -91,6 +93,7 @@ const Player = function () {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+// Created multiple enemies for an additional challenge
 
 const player = new Player();
 
@@ -103,8 +106,9 @@ const beetle6 = new Enemy(-250, 230, 50);
 
 const allEnemies = [];
 allEnemies.push(beetle1, beetle2, beetle3, beetle4, beetle5, beetle6);
+
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method. DO NOT MODIFY
 document.addEventListener('keyup', function (e) {
   const allowedKeys = {
     37: 'left',
