@@ -43,11 +43,12 @@ const Player = function () {
       let distance = Math.sqrt(dtx * dtx + dty * dty);
 
       if (distance < 56) {
+        alert('Ouchie! Play again?');
         this.reset();
       }
     }
     if (this.yPos === -15) {
-      alert('You Win!');
+      alert('You Win! Play again?');
       this.reset();
     }
   };
