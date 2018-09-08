@@ -37,10 +37,21 @@ var Player = function () {
   this.yPos = 400;
 
   this.update = function (dt) {
+    for (let enemy of allEnemies) {
+      let dtx = this.xPos - enemy.x - 15;
+      let dty = this.yPos - enemy.y - 20;
+      let distance = Math.sqrt(dtx * dtx + dty * dty);
+
+      if (distance < 56) {
+        console.log('hit');
+      }
+    }
   };
+
   this.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.xPos, this.yPos);
   };
+
   this.handleInput = function (input) {
     switch (input) {
       case 'up':
@@ -78,7 +89,7 @@ const beetle2 = new Enemy(-150, 65, 100);
 const beetle3 = new Enemy(-200, 145, 75);
 const beetle4 = new Enemy(-400, 145, 150);
 const beetle5 = new Enemy(-100, 230, 75);
-const beetle6 = new Enemy(-250, 230, 50)
+const beetle6 = new Enemy(-250, 230, 50);
 
 const allEnemies = [];
 allEnemies.push(beetle1, beetle2, beetle3, beetle4, beetle5, beetle6);
