@@ -39,7 +39,8 @@ If you win, the game will stop and you'll receive another prompt to play again!
 
 ## Contributing
 
-This repository is a fork of the the starter code for _all_ Udacity students, but the majority of JS code is mine and I welcome constructive criticism or help to make this program better!
+This repository is a fork of the the starter code for _all_ Udacity students, but the JS code in the app.js has been
+modified by me and I welcome constructive criticism or help to make this program better!
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
