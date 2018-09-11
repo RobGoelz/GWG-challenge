@@ -53,6 +53,13 @@ $(function () {
       });
     });
 
+    // found that Matthew Cranford had an excellent solution to
+    // contain .feed class in a variable
+    // but liked the toBeGreaterThan matcher used by
+    // Benjamin Cunningham, and refactored with it
+    // see the following for details:
+    // https://matthewcranford.com/feed-reader-walkthrough-part-4-async-tests/
+    // https://medium.com/letsboot/testing-javascript-with-jasmine-basics-48efe03cf973
     it('loadFeed completes', function (done) {
       const feed = document.querySelector('.feed');
       expect(feed.children.length).toBeGreaterThan(0);
@@ -60,10 +67,27 @@ $(function () {
     });
   });
 
-  /* TODO: Write a new test suite named "New Feed Selection" */
+  describe('New Feed Selection', function () {
+    let feed0Entries;
+    let feed1Entries;
 
-  /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+    // found the advice from Benjamin Cunningham to be most
+    // effective for this, see:
+    // https://medium.com/letsboot/testing-javascript-with-jasmine-basics-48efe03cf973
+    beforeEach(function (done) {
+      loadFeed(0, function () {
+        feed0Entries = $('.feed.children.text');
+        done();
+      });
+      loadFeed(1, function () {
+        feed1Entries = $('.feed.children.text');
+        done();
+      });
+    });
+
+    it('content changes', function() {
+      const feed = document.querySelector('.feed');
+      expect(feed0Entries).not.toBe(feed1Entries);
+    });
+  });
 }());
