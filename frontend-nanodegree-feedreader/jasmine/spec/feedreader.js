@@ -46,19 +46,19 @@ $(function () {
     });
   });
 
-describe('Initial Entries', function () {
-  beforeEach(function (done) {
-    loadFeed(0, function () {
+  describe('Initial Entries', function () {
+    beforeEach(function (done) {
+      loadFeed(0, function () {
+        done();
+      });
+    });
+
+    it('loadFeed completes', function (done) {
+      const feed = document.querySelector('.feed');
+      expect(feed.children.length).toBeGreaterThan(0);
       done();
     });
   });
-
-  it('loadFeed completes', function (done) {
-    const feed = document.querySelector('.feed');
-    expect(feed.children.length > 0).toBe(true);
-    done();
-  });
-});
 
   /* TODO: Write a new test suite named "New Feed Selection" */
 
