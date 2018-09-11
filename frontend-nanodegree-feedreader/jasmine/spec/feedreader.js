@@ -33,16 +33,19 @@ $(function () {
   });
 
   describe('The menu', function () {
+    const menu = document.querySelector('.menu-hidden');
+    const menuLink = document.querySelector('.menu-icon-link');
+    const body = document.querySelector('body');
 
     it('has menu element hidden', function () {
-      expect($('.menu-hidden')).toBeDefined(true);
+      expect(menu).toBeDefined(true);
     });
 
     it('menu changes visibility on click', function () {
-      $('.menu-icon-link').click();
-      expect($('body').hasClass('menu-hidden')).toBe(false);
-      $('.menu-icon-link').click();
-      expect($('body').hasClass('menu-hidden')).toBe(true);
+      menuLink.click();
+      expect(body.classList.contains('menu-hidden')).toBe(false);
+      menuLink.click();
+      expect(body.classList.contains('menu-hidden')).toBe(true);
     });
   });
 
@@ -71,9 +74,9 @@ $(function () {
     let feed0Entries;
     let feed1Entries;
 
-    // found the advice from Benjamin Cunningham to be most
+    // found the advice from the forum to be most
     // effective for this, see:
-    // https://medium.com/letsboot/testing-javascript-with-jasmine-basics-48efe03cf973
+    // https://discussions.udacity.com/t/feedreader-testing-async-test-question/865199
     beforeEach(function (done) {
       loadFeed(0, function () {
         feed0Entries = $('.feed.children.text');
