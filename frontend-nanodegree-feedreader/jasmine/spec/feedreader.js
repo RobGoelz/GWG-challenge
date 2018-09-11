@@ -73,23 +73,23 @@ $(function () {
   describe('New Feed Selection', function () {
     let feed0Entries;
     let feed1Entries;
+    let feedCT = document.querySelector('.feed.children.text');
 
     // found the advice from the forum to be most
     // effective for this, see:
     // https://discussions.udacity.com/t/feedreader-testing-async-test-question/865199
     beforeEach(function (done) {
       loadFeed(0, function () {
-        feed0Entries = $('.feed.children.text');
+        feed0Entries = feedCT;
         done();
       });
       loadFeed(1, function () {
-        feed1Entries = $('.feed.children.text');
+        feed0Entries = feedCT;
         done();
       });
     });
 
     it('content changes', function() {
-      const feed = document.querySelector('.feed');
       expect(feed0Entries).not.toBe(feed1Entries);
     });
   });
