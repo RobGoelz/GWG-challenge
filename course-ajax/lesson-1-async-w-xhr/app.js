@@ -21,7 +21,7 @@
         const articleRequest = new XMLHttpRequest();
         articleRequest.onload = addArticles;
         articleRequest.onerror = function (err) {
-             requestError(err, 'articles');
+            requestError(err, 'articles');
         };
         articleRequest.open('GET', `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=d29cb75dbffc4c6b848fc8597c1fc38f`);
         articleRequest.send();
