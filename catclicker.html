@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="utf-8">
+     <title>Cat Clicker!</title>
+  </head>
+  <body>
+
+    <img id="kitteh" src="https://farm2.staticflickr.com/1126/625069434_db86b67df8.jpg" alt="Xuxa the Kitten, Click Me!" width="500" height="333" align="center">
+
+    <p>Count: <p class="counter"></p></p>
+
+    <style>
+       img {
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         with: 50%;
+       }
+       p {
+         text-align: center;
+       }
+    </style>
+    <script>
+        document.querySelector('.counter').innerHTML = 0;
+        let count = document.querySelector('.counter').innerHTML;
+        let elem = document.getElementById('kitteh');
+        elem.addEventListener('click', function () {
+           count ++;
+           document.querySelector('.counter').innerHTML = count;
+        }, false);
+    </script>
+  </body>
