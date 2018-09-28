@@ -1,10 +1,15 @@
 self.addEventListener('fetch', function(event) {
-  // TODO: only respond to requests with a
-  // url ending in ".jpg"
-  let url = event.request.url;
-  let response = url.endsWith('.jpg');
-  if (response)
   event.respondWith(
-    fetch('/imgs/dr-evil.gif')
+    fetch(event.request).then(function(response) {
+      if (response.status === 404) {
+        // TODO: instead, respond with the gif at
+        // /imgs/dr-evil.gif
+        // using a network request
+        return fetch('/imgs/dr-evil.gif');
+      }
+      return response;
+    }).catch(function() {
+      return new Response("Uh oh, that totally failed!");
+    })
   );
 });
