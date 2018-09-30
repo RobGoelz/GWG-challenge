@@ -1,6 +1,11 @@
+const staticCacheName = 'wittr-static-v2';
+
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('wittr-static-v1').then(function(cache) {
+    // TODO: change the site's theme, eg swap the vars in public/scss/_theme.scss
+    // Ensure at least $primary-color changes
+    // TODO: change cache name to 'wittr-static-v2'
+    caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
         '/',
         'js/main.js',
@@ -13,11 +18,24 @@ self.addEventListener('install', function(event) {
   );
 });
 
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return cacheName.startsWith('wittr-')&&cacheName != staticCacheName;
+        }).map(function(cacheName) {
+            return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
-      if (response) return response;
-      return fetch(event.request);
+      return response || fetch(event.request);
     })
   );
 });
