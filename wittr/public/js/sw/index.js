@@ -1,10 +1,7 @@
-const staticCacheName = 'wittr-static-v2';
-
+var staticCacheName = 'wittr-static-v2';
+///sdghjbjhb
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    // TODO: change the site's theme, eg swap the vars in public/scss/_theme.scss
-    // Ensure at least $primary-color changes
-    // TODO: change cache name to 'wittr-static-v2'
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
         '/',
@@ -23,9 +20,10 @@ self.addEventListener('activate', function(event) {
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.filter(function(cacheName) {
-          return cacheName.startsWith('wittr-')&&cacheName != staticCacheName;
+          return cacheName.startsWith('wittr-') &&
+                 cacheName != staticCacheName;
         }).map(function(cacheName) {
-            return caches.delete(cacheName);
+          return caches.delete(cacheName);
         })
       );
     })
