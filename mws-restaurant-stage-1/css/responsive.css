@@ -1,0 +1,57 @@
+@media screen and (min-width: 360px) {
+  header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-size-adjust: auto;
+    margin: auto;
+  }
+
+   footer {
+    bottom: 0;
+    position: absolute;
+    padding-right: 2px;
+    width: 100%;
+  }
+  #restaurant-container {
+    width: 45%;
+  }
+
+  #restaurant-hours td {
+    width: 50%;
+  }
+
+  #reviews-container {
+    width: 50%;
+  }
+
+}
+
+@media screen and (min-width: 760px) {
+
+  h1 {
+    font-size: 50px;
+    font-
+    font-size-adjust: auto;
+    margin: auto;
+  }
+
+  #restaurant-container {
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #fff;
+    width: 50%;
+  }
+
+  #restaurant-hours td {
+    width: 73%;
+  }
+
+  #reviews-container {
+    width: 60%;
+  }
+
+}
