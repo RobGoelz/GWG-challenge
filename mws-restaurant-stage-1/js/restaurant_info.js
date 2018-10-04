@@ -114,7 +114,9 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(day);
 
     const time = document.createElement('td');
-    time.innerHTML = operatingHours[key];
+    // using advice from James Bartlett here to fix formatting, see:
+    // https://goo.gl/PBj9Us
+    time.innerHTML = operatingHours[key].replace(/, */g, ',<br/>');
     row.appendChild(time);
 
     hours.appendChild(row);
