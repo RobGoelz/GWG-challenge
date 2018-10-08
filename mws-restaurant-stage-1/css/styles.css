@@ -14,6 +14,12 @@ body {
 	background-color: #fdfdfd;
 	margin: 0;
 	position:relative;
+  /* add breakpoints @ max-width & margin, per recommendation of Doug Brown/UIUXLab
+  see: https://www.youtube.com/watch?v=92dtrNU1GQc && https://goo.gl/Rzj8Mm*/
+  max-width: 1020px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ul,
