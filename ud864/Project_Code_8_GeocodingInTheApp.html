@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 
 <head>
+  <meta charset="utf-8">
   <style>
     html,
       body {
@@ -68,7 +69,7 @@
       }
 
       #toggle-drawing {
-        width: 27%;
+        width: 30%;
         position: relative;
         margin-left: 10px;
       }
@@ -474,7 +475,11 @@
         geocoder.geocode({
           address: address,
           componentRestrictions: {
-            locality: 'New York'
+            country: 'US',
+            locality: 'Morgantown',
+            administrativeArea: 'Central',
+            administrativeArea: 'West Virginia',
+            postalCode: '26505'
           }
         }, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
