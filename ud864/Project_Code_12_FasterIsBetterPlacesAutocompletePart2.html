@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
+    <meta charset='utf-8'>
     <style>
       html,
       body {
@@ -72,7 +73,7 @@
       }
 
       #toggle-drawing {
-        width: 27%;
+        width: 30%;
         position: relative;
         margin-left: 10px;
       }
@@ -89,12 +90,12 @@
   <body>
     <div class="container">
       <div class="options-box">
-        <h1>Find Your New NYC Home</h1>
+        <h1>Find Your Morgantown Brew!</h1>
         <div>
           <input id="show-listings" type="button" value="Show Listings">
           <input id="hide-listings" type="button" value="Hide Listings">
           <hr>
-          <span class="text"> Draw a shape to search within it for homes!</span>
+          <span class="text"> Draw a shape to search within it for watering holes!</span>
           <input id="toggle-drawing"  type="button" value="Drawing Tools">
         </div>
         <hr>
@@ -118,13 +119,13 @@
             <option value="TRANSIT">transit ride</option>
           </select>
           <span class="text">of</span>
-          <input id="search-within-time-text" type="text" placeholder="Ex: Google Office NYC or 75 9th Ave, New York, NY">
+          <input id="search-within-time-text" type="text" placeholder="Ex: WVU: W Virginia Ave, Morgantown, WV 26501">
           <input id="search-within-time" type="button" value="Go">
         </div>
         <hr>
         <div>
-          <span class="text">Search for nearby places</span>
-          <input id="places-search" type="text" placeholder="Ex: Pizza delivery in NYC">
+          <span class="text">Search for nearby bars</span>
+          <input id="places-search" type="text" placeholder="Ex: Irish pub">
           <input id="go-places" type="button" value="Go">
         </div>
       </div>
@@ -145,76 +146,103 @@
 
       function initMap() {
         // Create a styles array to use with the map.
-        var styles = [
+        var styles = [{
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+              "color": "#444444"
+            }]
+          },
           {
-            featureType: 'water',
-            stylers: [
-              { color: '#19a0d8' }
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [{
+              "color": "#f2f2f2"
+            }]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [{
+                "saturation": -100
+              },
+              {
+                "lightness": 45
+              }
             ]
-          },{
-            featureType: 'administrative',
-            elementType: 'labels.text.stroke',
-            stylers: [
-              { color: '#ffffff' },
-              { weight: 6 }
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [{
+              "visibility": "simplified"
+            }]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "visibility": "on"
+              },
+              {
+                "color": "#b5a265"
+              }
             ]
-          },{
-            featureType: 'administrative',
-            elementType: 'labels.text.fill',
-            stylers: [
-              { color: '#e85113' }
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [{
+                "color": "#0f4d67"
+              },
+              {
+                "visibility": "on"
+              }
             ]
-          },{
-            featureType: 'road.highway',
-            elementType: 'geometry.stroke',
-            stylers: [
-              { color: '#efe9e4' },
-              { lightness: -40 }
-            ]
-          },{
-            featureType: 'transit.station',
-            stylers: [
-              { weight: 9 },
-              { hue: '#e85113' }
-            ]
-          },{
-            featureType: 'road.highway',
-            elementType: 'labels.icon',
-            stylers: [
-              { visibility: 'off' }
-            ]
-          },{
-            featureType: 'water',
-            elementType: 'labels.text.stroke',
-            stylers: [
-              { lightness: 100 }
-            ]
-          },{
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [
-              { lightness: -100 }
-            ]
-          },{
-            featureType: 'poi',
-            elementType: 'geometry',
-            stylers: [
-              { visibility: 'on' },
-              { color: '#f0e4d3' }
-            ]
-          },{
-            featureType: 'road.highway',
-            elementType: 'geometry.fill',
-            stylers: [
-              { color: '#efe9e4' },
-              { lightness: -25 }
-            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels.text",
+            "stylers": [{
+              "color": "#ffffff"
+            }]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+              "color": "#256461"
+            }]
           }
         ];
 
         // Constructor creates a new map - only center and zoom are required.
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.7413549, lng: -73.9980244},
+          center: {
+            lat: 39.629526,
+            lng: -79.955897
+          },
           zoom: 13,
           styles: styles,
           mapTypeControl: false
@@ -237,12 +265,55 @@
         // These are the real estate listings that will be shown to the user.
         // Normally we'd have these in a database instead.
         var locations = [
-          {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
-          {title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
-          {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}},
-          {title: 'East Village Hip Studio', location: {lat: 40.7281777, lng: -73.984377}},
-          {title: 'TriBeCa Artsy Bachelor Pad', location: {lat: 40.7195264, lng: -74.0089934}},
-          {title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng: -73.9961237}}
+        {
+          title: 'Table 9',
+          location: {
+            lat: 39.6259197,
+            lng: -79.9630443
+          }
+        },
+        {
+          title: 'Mountain State Brewing',
+          location: {
+            lat: 39.6271876,
+            lng: -79.9613838
+          }
+        },
+        {
+          title: 'Morgantown Brewing Company',
+          location: {
+            lat: 39.630539,
+            lng: -79.9578259
+          }
+        },
+        {
+          title: 'Apothecary Ale House',
+          location: {
+            lat: 39.6296537,
+            lng: -79.957458
+          }
+        },
+        {
+          title: 'Tin 202',
+          location: {
+            lat: 39.628827,
+            lng: -79.956528
+          }
+        },
+        {
+          title: 'Iron Horse Tavern',
+          location: {
+            lat: 39.628307,
+            lng: -79.956868
+          }
+        },
+        {
+          title: 'Hill and Hollow',
+          location: {
+            lat: 39.6420246,
+            lng: -79.9627688
+          }
+        }
         ];
 
         var largeInfowindow = new google.maps.InfoWindow();
@@ -260,11 +331,11 @@
         });
 
         // Style the markers a bit. This will be our listing marker icon.
-        var defaultIcon = makeMarkerIcon('0091ff');
+        var defaultIcon = makeMarkerIcon('61a9eb');
 
         // Create a "highlighted location" marker color for when the user
         // mouses over the marker.
-        var highlightedIcon = makeMarkerIcon('FFFF24');
+        var highlightedIcon = makeMarkerIcon('b5a265');
 
         // The following group uses the location array to create an array of markers on initialize.
         for (var i = 0; i < locations.length; i++) {
@@ -465,7 +536,12 @@
           // on it and zoom in
           geocoder.geocode(
             { address: address,
-              componentRestrictions: {locality: 'New York'}
+              componentRestrictions: {
+                country: 'US',
+                locality: 'Morgantown',
+                administrativeArea: 'Central',
+                administrativeArea: 'West Virginia',
+              }
             }, function(results, status) {
               if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
@@ -698,7 +774,7 @@
 
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=MYAPIKEY&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyAVNvPvtksWMshnL2fa-5sszYkaircUZWI&v=3&callback=initMap">
     </script>
 
   </body>
