@@ -39,3 +39,4 @@ Thumbs.db
 # Other #
 #########
 neighborhood-map/src/data/apikey.json
+neighborhood-map/src/data/foursquare.json
