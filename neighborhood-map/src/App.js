@@ -48,7 +48,7 @@ class App extends Component {
     this.setState({
       ...this.state,
       selectedIndex: null,
-      filtered: this.filerLocations(this.state.all, query)
+      filtered: this.filterLocations(this.state.all, query)
     });
   }
 
