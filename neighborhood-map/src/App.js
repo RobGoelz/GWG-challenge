@@ -30,11 +30,32 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    this.setState({
+      ...this.state,
+      filtered: this.filterLocations(this.state.all, "")
+    });
+  }
+
   toggleDrawer = () => {
     // toggles value controlling drawer display
     this.setState({
       open: !this.state.open
     });
+  }
+
+  updateQuery = (query) => {
+    this.setState({
+      ...this.state,
+      selectedIndex: null,
+      filtered: this.filerLocations(this.state.all, query)
+    });
+  }
+
+  filterLocations = (locations, query) => {
+    return locations.filter(
+      location => location.name.toLowerCase()
+      .includes(query.toLowerCase()));
   }
 
   render() {
