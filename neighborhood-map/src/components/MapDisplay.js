@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import apikey from '../data/apikey.json'
 import foursquare from '../data/foursquare.json'
-import Options from './Options'
-
 
 const MAP_KEY = apikey.key;
 const FS_CLIENT = foursquare.clientID;
