@@ -28,7 +28,7 @@ class App extends Component {
     header: {
       marginTop: "0px"
     }
-  }
+  };
 
   componentDidMount = () => {
     this.setState({
@@ -53,12 +53,10 @@ class App extends Component {
   }
 
   filterLocations = (locations, query) => {
-    return locations.filter(
-      location => location.name.toLowerCase()
-      .includes(query.toLowerCase()));
+    return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
   }
 
-  render() {
+  render = () => {
     return (
       <div className="App">
         <div>
@@ -74,11 +72,12 @@ class App extends Component {
           lat={this.state.lat}
           lon={this.state.lon}
           zoom={this.state.zoom}
-          locations={this.state.all}/>
+          locations={this.state.filtered}/>
         <Filter
-          locations={this.state.all}
+          locations={this.state.filtered}
           open={this.state.open}
-          toggleDrawer={this.toggleDrawer}/>
+          toggleDrawer={this.toggleDrawer}
+          filterLocations={this.updateQuery}/>
       </div>
     );
   }
