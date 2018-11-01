@@ -22,6 +22,31 @@ class MapDisplay extends Component {
   componentDidMount = () => {
   }
 
+  componentWillReceiveProps = (props) => {
+    this.setState({firstDrop: false});
+
+    // change in the number of locations, update markers
+    if (this.state.markers.length !== props.locations.length) {
+      this.closeInfoWindow();
+      this.updateMarkers(props.locations);
+      this.setState({activeMarker: null});
+
+      return;
+    }
+
+    // selected item is not the same as active marker, so close infowindow
+    if (!props.selectedIndex || (this.state.activeMarker &&
+    (this.state.markers[props.selectedIndex] !== this.state.activeMarker))) {
+      this.closeInfoWindow();
+    }
+
+    // make sure there's an index selected, or quit
+    if (props.selectedIndex === null ||
+       typeof(props.selectedIndex) === "undefined") {
+      return;
+    };
+  }
+
   mapReady = (props, map) => {
     // Saves the map reference in state and prepares the location markers
     this.setState({map});
@@ -131,6 +156,7 @@ class MapDisplay extends Component {
   }
 
   render = () => {
+
     const center = {
       lat: this.props.lat,
       lng: this.props.lon
