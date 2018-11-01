@@ -34,11 +34,12 @@ class Filter extends Component {
       margin: "30px 0px 10px",
       width: "100%"
     }
-  }
+  };
 
   updateQuery = (newQuery) => {
     // save the new query string in state and pass the string
     this.setState({ query: newQuery });
+    this.props.filterLocations(newQuery);
   }
 
   render = () => {
