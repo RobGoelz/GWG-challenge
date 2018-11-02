@@ -45,6 +45,9 @@ class MapDisplay extends Component {
        typeof(props.selectedIndex) === "undefined") {
       return;
     };
+
+    this.onMarkerClick(this.state.markerProps[props.selectedIndex],
+      this.state.markers[props.selectedIndex]);
   }
 
   mapReady = (props, map) => {
@@ -139,7 +142,9 @@ class MapDisplay extends Component {
       };
       markerProps.push(mrkrPropsHolder);
 
-      let animation = this.props.google.maps.Animation.DROP;
+      let animation = this.state.fisrtDrop ?
+      this.props.google.maps.Animation.DROP : null;
+      
       let marker = new this.props.google.maps.Marker({
         position: location.pos,
         map: this.state.map,
