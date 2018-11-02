@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import apikey from '../data/apikey.json'
 import foursquare from '../data/foursquare.json'
+import Container from './Container'
 
 const MAP_KEY = apikey.key;
 const FS_CLIENT = foursquare.clientID;
@@ -144,7 +145,7 @@ class MapDisplay extends Component {
 
       let animation = this.state.fisrtDrop ?
       this.props.google.maps.Animation.DROP : null;
-      
+
       let marker = new this.props.google.maps.Marker({
         position: location.pos,
         map: this.state.map,
@@ -204,4 +205,4 @@ class MapDisplay extends Component {
   }
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY})(MapDisplay);
+export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainer: Container})(MapDisplay);
